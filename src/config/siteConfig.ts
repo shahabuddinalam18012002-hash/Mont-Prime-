@@ -1,12 +1,23 @@
 import { Product } from '../types';
 
-// Image assets generated for MONT PRIME
+import heroImg from '../assets/images/wallet_collection_black_boxes_1791696448128.jpg';
+import walletsBlackImg from '../assets/images/wallet_black_trifold_podium_1791696411554.jpg';
+import walletsTanImg from '../assets/images/wallet_tan_bifold_podium_1791696423859.jpg';
+import walletsQuadImg from '../assets/images/wallet_quad_colors_giftbox_1791696437186.jpg';
+import pursesImg from '../assets/images/category_mens_purses_1791690557809.jpg';
+import cardHoldersImg from '../assets/images/category_card_holders_1791690571420.jpg';
+import craftsmanshipImg from '../assets/images/craftsmanship_stitching_1791690581516.jpg';
+
+// Image assets for MONT PRIME (bundled by Vite for 100% production reliability on Netlify, Vercel, and CDN)
 export const IMAGES = {
-  hero: '/src/assets/images/hero_wallets_collection_1791690533917.jpg',
-  wallets: '/src/assets/images/category_mens_wallets_1791690548262.jpg',
-  purses: '/src/assets/images/category_mens_purses_1791690557809.jpg',
-  cardHolders: '/src/assets/images/category_card_holders_1791690571420.jpg',
-  craftsmanship: '/src/assets/images/craftsmanship_stitching_1791690581516.jpg',
+  hero: heroImg,
+  wallets: walletsBlackImg,
+  walletsTan: walletsTanImg,
+  walletsQuad: walletsQuadImg,
+  walletsBlackBoxes: heroImg,
+  purses: pursesImg,
+  cardHolders: cardHoldersImg,
+  craftsmanship: craftsmanshipImg,
 };
 
 export const SITE_CONFIG = {
@@ -72,65 +83,87 @@ export const PRODUCTS_CATALOG: Product[] = [
   // --- MEN'S WALLETS ---
   {
     id: 'mp-w01',
-    name: 'The Sovereign Classic Bifold',
+    name: 'The Sovereign Trifold Executive Wallet',
     category: 'wallets',
     categoryLabel: "Men's Wallets",
-    subtitle: 'Full-Profile Bifold with Dual Currency Section',
+    subtitle: 'Full-Profile Trifold with Center Mesh ID Window & Snap Coin Pocket',
     description:
-      'A timeless classic engineered for everyday utility. Features reinforced perimeter stitching, eight precision-cut card slots, two concealed receipt slip pockets, and dual full-length currency dividers.',
+      'Crafted in textured pebble-grain leather with a secure metallic snap button clasp. Features an ergonomic trifold interior layout with a center breathable mesh ID window, precision card slots, an enclosed snap-flap coin pocket, and full-length cash chambers.',
     image: IMAGES.wallets,
-    dimensions: '11.5 cm x 9.2 cm x 1.4 cm',
-    material: 'Full-Grain Textured Finish with Subtle Matte Sheen',
-    compartments: '8 Card Slots, 2 Cash Dividers, 2 Slip Pockets',
-    availableColors: ['Classic Jet Black', 'Deep Espresso Brown'],
+    dimensions: '11.8 cm x 9.6 cm x 1.8 cm',
+    material: 'Full-Grain Pebble Texture with Burnished Reinforced Seams',
+    compartments: '6 Card Slots, Center ID Window, 1 Snap Coin Flap, 2 Currency Dividers',
+    availableColors: ['Classic Jet Black'],
     features: [
-      'Precision edge burnishing and sealed wax edges',
-      'Dual currency compartment accommodating international notes',
-      'Integrated RFID protective lining',
-      'Ultra-flat fold profile designed for suit or trouser pocket',
+      'Snap button closure for secure pocket carry',
+      'Center transparent mesh ID window for rapid badge presentation',
+      'Dedicated flap coin purse with brass snap button',
+      'Full-depth dual currency divider',
     ],
     isFeatured: true,
   },
   {
     id: 'mp-w02',
-    name: 'The Ambassador Slim Fold',
+    name: 'The Heritage Tan Coin-Pocket Bifold',
     category: 'wallets',
     categoryLabel: "Men's Wallets",
-    subtitle: 'Streamlined Bifold for Modern Professionals',
+    subtitle: 'Classic Bifold in Cognac Tan with Striped Lining & Snap Coin Flap',
     description:
-      'Designed for individuals who value compact dimensions without compromising capacity. Features quick-access thumb slots for primary cards and an optimized slim spine.',
-    image: IMAGES.hero,
-    dimensions: '10.8 cm x 8.8 cm x 1.1 cm',
-    material: 'Supple Micro-Grain Leatherette / Fine Grain Finish',
-    compartments: '6 Card Slots, 1 Currency Pocket, 2 Hidden Pockets',
-    availableColors: ['Obsidian Black', 'Cognac Tan'],
+      'A refined warm cognac tan wallet featuring authentic micro-grain texture, elegant striped interior lining, a dedicated photo/ID bay, quick-entry card slots, and an expandable snap-closure coin compartment.',
+    image: IMAGES.walletsTan,
+    dimensions: '11.5 cm x 9.4 cm x 1.6 cm',
+    material: 'Supple Textured Tan Leather with Pinstripe Micro-Twill Interior',
+    compartments: '5 Card Slots, 1 Clear ID Window, 1 Flap Coin Pocket, 2 Note Bays',
+    availableColors: ['Cognac Tan Brown'],
     features: [
-      'Ergonomic chamfered card entry angles',
-      'Single-layer fold spine for minimal pocket bulk',
-      'High-tensile nylon bonded thread',
-      'Discreet embossed interior wordmark',
+      'Distinctive nautical pinstripe currency lining',
+      'Ergonomic thumb-slide card extraction slot',
+      'Gently contoured coin flap with secure snap fastener',
+      'Double-stitched structural spine',
     ],
     isFeatured: true,
   },
   {
     id: 'mp-w03',
-    name: 'The Executive Coin-Pocket Wallet',
+    name: 'The Signature Quad Multi-Tone Gift Set',
     category: 'wallets',
     categoryLabel: "Men's Wallets",
-    subtitle: 'Functional Bifold with Concealed Snap Coin Section',
+    subtitle: 'Four Signature Colorways with Metallic Plaque & Gold Gift Boxes',
     description:
-      'Engineered for comprehensive daily organization. Combines five dedicated card slots with an expandable snap-closure coin pocket and deep billfold.',
-    image: IMAGES.wallets,
-    dimensions: '11.8 cm x 9.5 cm x 1.8 cm',
-    material: 'Textured Pebble Finish with Reinforced Interior Lining',
-    compartments: '5 Card Slots, 1 Snap Coin Pocket, 2 Currency Bays',
-    availableColors: ['Satin Black', 'Deep Charcoal'],
+      'Presented in rigid gold gift boxes with satin ribbon detailing. Includes four versatile palette choices: Dark Chocolate Brown, Deep Navy Blue, Charcoal Slate, and Camel Tan, each accented with a polished rectangular MP MONT PRIME brass brand plaque.',
+    image: IMAGES.walletsQuad,
+    dimensions: '11.2 cm x 9.0 cm x 1.4 cm',
+    material: 'Saffiano Cross-Grain Scratch-Resistant Finish',
+    compartments: '6 Card Slots, 1 Currency Section, Interior Slip Pockets',
+    availableColors: ['Dark Brown', 'Navy Blue', 'Charcoal Slate', 'Camel Tan'],
     features: [
-      'Gently curved flap for coin pocket with secure brass press-snap',
-      'Reinforced gusset prevents coin spillage',
-      'Smooth micro-twill currency lining',
-      'Edge-folded perimeter seams',
+      'Solid brass rectangular MP MONT PRIME logo plaque',
+      'Includes premium rigid gold gift boxes ready for counter display',
+      'Scratch-resistant cross-grain exterior treatment',
+      'Optimal slim profile designed for suit jackets and trouser pockets',
     ],
+    isFeatured: true,
+  },
+  {
+    id: 'mp-w04',
+    name: 'The Star Edition Executive Bifold Set',
+    category: 'wallets',
+    categoryLabel: "Men's Wallets",
+    subtitle: 'Minimalist Debossed Star Mark in Matte Black Luxury Packaging',
+    description:
+      'Features a debossed geometric star insignia and gold-stamped interior card chambers. Packaged in matte black luxury boxes with gold ribbon closures, offered in rich espresso brown and jet black finishes.',
+    image: IMAGES.walletsBlackBoxes,
+    dimensions: '11.0 cm x 8.8 cm x 1.2 cm',
+    material: 'Silky Fine-Grain Matte Leatherette with Subtle Sheen',
+    compartments: '8 Card Slots, Dual Billfold, 2 Hidden Receipts Pockets',
+    availableColors: ['Jet Black', 'Rich Espresso Brown', 'Deep Charcoal'],
+    features: [
+      'Debossed four-pointed star emblem and MONT PRIME wordmark',
+      'Matte black gift boxes with gold foil typography',
+      'Ultra-thin fold profile minimizing pocket protrusion',
+      'Tested for repetitive opening cycles with bonded nylon threading',
+    ],
+    isFeatured: true,
   },
 
   // --- MEN'S PURSES / TRAVEL ORGANIZERS ---

@@ -178,6 +178,168 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
           ))}
         </div>
+
+        {/* Featured Wallet Spotlight Grid */}
+        <div className="mt-16 pt-16 border-t border-[#1F1F1F]">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+              <span className="text-xs uppercase tracking-[0.25em] text-[#C8A45D] block mb-1">
+                Signature Collection
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#F5F2EC]">
+                Featured Wallet Editions & Gift Packaging
+              </h3>
+            </div>
+            <button
+              onClick={() => {
+                if (onSelectCategoryFilter) onSelectCategoryFilter('wallets');
+                onNavigate('collection');
+              }}
+              className="text-xs uppercase tracking-wider text-[#C8A45D] hover:text-[#E3CD98] inline-flex items-center gap-1 font-semibold"
+            >
+              <span>View All Wallets</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-[#141414] border border-[#222222] rounded-sm overflow-hidden flex flex-col group">
+              <div className="relative aspect-[4/3] bg-[#0E0E0E] overflow-hidden">
+                <img
+                  src={IMAGES.wallets}
+                  alt="The Sovereign Trifold Executive Wallet"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-[#C8A45D] block mb-1">
+                    Trifold Series
+                  </span>
+                  <h4 className="font-serif text-lg text-[#F5F2EC] mb-1">
+                    The Sovereign Trifold
+                  </h4>
+                  <p className="text-xs text-[#8E8B85] line-clamp-2">
+                    Textured black pebble leather with snap clasp, central ID window, and coin pouch.
+                  </p>
+                </div>
+                <div className="pt-3 mt-3 border-t border-[#1F1F1F]">
+                  <a
+                    href={getWhatsAppUrl("Hello MONT PRIME, I would like to enquire about wholesale for The Sovereign Trifold Executive Wallet.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#C8A45D] hover:text-[#E3CD98] font-medium block text-center"
+                  >
+                    Enquire on WhatsApp →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#141414] border border-[#222222] rounded-sm overflow-hidden flex flex-col group">
+              <div className="relative aspect-[4/3] bg-[#0E0E0E] overflow-hidden">
+                <img
+                  src={IMAGES.walletsTan}
+                  alt="The Heritage Tan Coin-Pocket Bifold"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-[#C8A45D] block mb-1">
+                    Heritage Bifold
+                  </span>
+                  <h4 className="font-serif text-lg text-[#F5F2EC] mb-1">
+                    The Heritage Tan Bifold
+                  </h4>
+                  <p className="text-xs text-[#8E8B85] line-clamp-2">
+                    Warm cognac tan leather with pinstripe interior, ID compartment, and snap coin flap.
+                  </p>
+                </div>
+                <div className="pt-3 mt-3 border-t border-[#1F1F1F]">
+                  <a
+                    href={getWhatsAppUrl("Hello MONT PRIME, I would like to enquire about wholesale for The Heritage Tan Coin-Pocket Bifold.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#C8A45D] hover:text-[#E3CD98] font-medium block text-center"
+                  >
+                    Enquire on WhatsApp →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#141414] border border-[#222222] rounded-sm overflow-hidden flex flex-col group">
+              <div className="relative aspect-[4/3] bg-[#0E0E0E] overflow-hidden">
+                <img
+                  src={IMAGES.walletsQuad}
+                  alt="The Signature Quad Multi-Tone Gift Set"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-[#C8A45D] block mb-1">
+                    Retail Gift Box Set
+                  </span>
+                  <h4 className="font-serif text-lg text-[#F5F2EC] mb-1">
+                    Signature Quad Gift Set
+                  </h4>
+                  <p className="text-xs text-[#8E8B85] line-clamp-2">
+                    4 versatile colorways with brass MP logo plaque & rigid gold gift boxes.
+                  </p>
+                </div>
+                <div className="pt-3 mt-3 border-t border-[#1F1F1F]">
+                  <a
+                    href={getWhatsAppUrl("Hello MONT PRIME, I would like to enquire about wholesale for The Signature Quad Multi-Tone Gift Set.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#C8A45D] hover:text-[#E3CD98] font-medium block text-center"
+                  >
+                    Enquire on WhatsApp →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#141414] border border-[#222222] rounded-sm overflow-hidden flex flex-col group">
+              <div className="relative aspect-[4/3] bg-[#0E0E0E] overflow-hidden">
+                <img
+                  src={IMAGES.walletsBlackBoxes}
+                  alt="The Star Edition Executive Bifold Set"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-[#C8A45D] block mb-1">
+                    Executive Packaging
+                  </span>
+                  <h4 className="font-serif text-lg text-[#F5F2EC] mb-1">
+                    The Star Edition Set
+                  </h4>
+                  <p className="text-xs text-[#8E8B85] line-clamp-2">
+                    Matte black gold-ribbon gift packaging with debossed star mark in rich tones.
+                  </p>
+                </div>
+                <div className="pt-3 mt-3 border-t border-[#1F1F1F]">
+                  <a
+                    href={getWhatsAppUrl("Hello MONT PRIME, I would like to enquire about wholesale for The Star Edition Executive Bifold Set.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#C8A45D] hover:text-[#E3CD98] font-medium block text-center"
+                  >
+                    Enquire on WhatsApp →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ========================================================

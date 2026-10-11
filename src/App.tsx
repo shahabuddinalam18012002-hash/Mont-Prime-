@@ -15,6 +15,9 @@ import { StoryPage } from './pages/StoryPage';
 import { ContactPage } from './pages/ContactPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
+import { ThemeSelector, ThemeId } from './components/ThemeSelector';
+import { Palette } from 'lucide-react';
+
 export default function App() {
   // Routing state
   const [currentPage, setCurrentPage] = useState<PageId>('home');
@@ -29,6 +32,30 @@ export default function App() {
   // Modal states
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isConfigGuideOpen, setIsConfigGuideOpen] = useState(false);
+  const [isThemeSelectorOpen, setIsThemeSelectorOpen] = useState(false);
+
+  // Theme state (defaults to 'cognac' warm luxury leather, stored in localStorage)
+  const [currentTheme, setCurrentTheme] = useState<ThemeId>(() => {
+    try {
+      const saved = localStorage.getItem('montprime_theme');
+      if (saved && ['cognac', 'noir', 'ivory', 'emerald', 'navy'].includes(saved)) {
+        return saved as ThemeId;
+      }
+    } catch {
+      // ignore
+    }
+    return 'cognac';
+  });
+
+  // Apply theme to document element
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    try {
+      localStorage.setItem('montprime_theme', currentTheme);
+    } catch {
+      // ignore
+    }
+  }, [currentTheme]);
 
   // Sync with URL Hash on load & change for real multi-page URL routing
   useEffect(() => {
@@ -117,7 +144,11 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0B0B] text-[#F5F2EC]">
       {/* 1. Header (Sticky Top Bar Contract) */}
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      <Header
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        onOpenThemeSelector={() => setIsThemeSelectorOpen(true)}
+      />
 
       {/* 2. Main Page Content View */}
       <main className="flex-1">
@@ -169,26 +200,49 @@ export default function App() {
         onOpenConfigGuide={() => setIsConfigGuideOpen(true)}
       />
 
-      {/* 4. Accessible Floating WhatsApp Contact Button */}
+      {/* 4. Accessible Floating WhatsApp Contact Button (Right) */}
       <WhatsAppButton />
 
-      {/* 5. Product Details Lightbox / Spec Modal */}
+      {/* 5. Floating Quick Palette Switcher (Left) */}
+      <button
+        type="button"
+        onClick={() => setIsThemeSelectorOpen(true)}
+        className="fixed bottom-6 left-6 z-40 flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-[#F5F2EC] bg-[#141414]/90 hover:bg-[#1C1C1C] border border-[#2F2F2F] hover:border-[#4B4B4B] backdrop-blur-md rounded-full shadow-2xl transition-all cursor-pointer group hover:scale-105 active:scale-95"
+        title="Change brand colour palette"
+        aria-label="Change brand colour palette"
+      >
+        <span className="w-2.5 h-2.5 rounded-full bg-[#C8A45D] ring-2 ring-[#C8A45D]/40" />
+        <Palette className="w-3.5 h-3.5 text-[#C8A45D] group-hover:rotate-45 transition-transform" />
+        <span className="hidden sm:inline text-[11px] font-medium tracking-normal text-[#B8B5AF] group-hover:text-[#F5F2EC]">
+          Colours
+        </span>
+      </button>
+
+      {/* 6. Product Details Lightbox / Spec Modal */}
       <ProductDetailModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
         onNavigateToWholesale={handleNavigateToWholesaleWithProduct}
       />
 
-      {/* 6. Privacy & Commercial Data Policy Modal */}
+      {/* 7. Privacy & Commercial Data Policy Modal */}
       <PrivacyModal
         isOpen={isPrivacyOpen}
         onClose={() => setIsPrivacyOpen(false)}
       />
 
-      {/* 7. Website Owner Operations & Config Guide Modal */}
+      {/* 8. Website Owner Operations & Config Guide Modal */}
       <ConfigGuideModal
         isOpen={isConfigGuideOpen}
         onClose={() => setIsConfigGuideOpen(false)}
+      />
+
+      {/* 9. Brand Color Palette Selector Modal */}
+      <ThemeSelector
+        isOpen={isThemeSelectorOpen}
+        onClose={() => setIsThemeSelectorOpen(false)}
+        currentTheme={currentTheme}
+        onThemeChange={(newTheme) => setCurrentTheme(newTheme)}
       />
     </div>
   );

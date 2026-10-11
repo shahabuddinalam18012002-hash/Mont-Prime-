@@ -5,9 +5,14 @@ import { PageId } from '../types';
 interface HeaderProps {
   currentPage: PageId;
   onNavigate: (page: PageId) => void;
+  onOpenThemeSelector?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({
+  currentPage,
+  onNavigate,
+  onOpenThemeSelector,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks: { id: PageId; label: string }[] = [
@@ -66,8 +71,21 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
           })}
         </nav>
 
-        {/* Zone 3: 1 Primary Action (Desktop) & Mobile Toggle */}
-        <div className="flex items-center gap-3 shrink-0">
+        {/* Zone 3: Palette Switcher + Primary Action + Mobile Toggle */}
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          {onOpenThemeSelector && (
+            <button
+              type="button"
+              onClick={onOpenThemeSelector}
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-[#B8B5AF] hover:text-[#F5F2EC] bg-[#141414] hover:bg-[#1A1A1A] border border-[#2B2B2B] hover:border-[#3E3E3E] rounded-sm transition-colors cursor-pointer"
+              title="Change brand color palette"
+              aria-label="Change brand color palette"
+            >
+              <span className="w-2.5 h-2.5 rounded-full bg-[#C8A45D] ring-1 ring-[#E3CD98]/50" />
+              <span className="hidden sm:inline">Colours</span>
+            </button>
+          )}
+
           <button
             onClick={() => handleNavClick('wholesale')}
             className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-wider uppercase text-[#0B0B0B] bg-[#C8A45D] hover:bg-[#E3CD98] transition-all cursor-pointer rounded-sm shadow-sm"
@@ -109,7 +127,21 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               );
             })}
 
-            <div className="pt-4 border-t border-[#262626]">
+            <div className="pt-4 border-t border-[#262626] space-y-3">
+              {onOpenThemeSelector && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenThemeSelector();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-medium text-[#F5F2EC] bg-[#171717] hover:bg-[#202020] border border-[#2B2B2B] rounded-sm transition-colors cursor-pointer"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#C8A45D]" />
+                  <span>Change Brand Colour Palette</span>
+                </button>
+              )}
+
               <button
                 onClick={() => handleNavClick('wholesale')}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 text-xs font-semibold tracking-wider uppercase text-[#0B0B0B] bg-[#C8A45D] hover:bg-[#E3CD98] transition-colors rounded-sm cursor-pointer"
